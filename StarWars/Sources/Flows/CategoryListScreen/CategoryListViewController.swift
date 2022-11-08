@@ -2,8 +2,8 @@ import UIKit
 
 final class CategoryListViewController: UICollectionViewController {
     
-    typealias DataSource = UICollectionViewDiffableDataSource<Int, String>
-    typealias Snapshot = NSDiffableDataSourceSnapshot<Int, String>
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, CategoryModel>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, CategoryModel>
     
     var viewModel: CategoryListViewModel!
     private var dataSource: DataSource!
@@ -36,21 +36,22 @@ private extension CategoryListViewController {
     }
     
     func configureDataSource() {
-        let cellRegistration = UICollectionView.CellRegistration { (cell: UICollectionViewListCell, indexPath: IndexPath, itemIdentifier: String) in
+        let cellRegistration = UICollectionView.CellRegistration { (cell: UICollectionViewListCell, indexPath: IndexPath, model: CategoryModel) in
             var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = itemIdentifier
+            contentConfiguration.text = model.name
             cell.contentConfiguration = contentConfiguration
         }
         
-        dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, itemIdentifier: String) in
-            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: itemIdentifier)
+        dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, model: CategoryModel) in
+            return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: model)
         }
     }
     
     func configureSnapshot() {
         var snapshot = Snapshot()
-        snapshot.appendSections([0])
-        snapshot.appendItems(["films", "video", "text", "audio", "films2", "video2", "text2", "audio2"])
+        snapshot.appendSections([Section.main])
+        let model = viewModel.getModels()
+        snapshot.appendItems(model)
         dataSource.apply(snapshot)
         
         collectionView.dataSource = dataSource

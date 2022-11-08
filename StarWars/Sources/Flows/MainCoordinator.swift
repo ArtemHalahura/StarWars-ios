@@ -30,14 +30,14 @@ private extension MainCoordinator {
         output.onFinishFlow = {
             print("Finish flow")
         }
-        output.onCategoryScreen = { [weak self] in
-            self?.showCategoryListScreen()
+        output.onCategoryScreen = { [weak self] models in
+            self?.showCategoryListScreen(with: models)
         }
         router.setRootModule(presentable)
     }
     
-    func showCategoryListScreen() {
-        let (output, presentable) = moduleFactory.makeCategoryListModuleOutput(dependencies: dependencies)
+    func showCategoryListScreen(with models: [CategoryModel]) {
+        let (output, presentable) = moduleFactory.makeCategoryListModuleOutput(dependencies: dependencies, categoryModels: models)
         
         output.onFinishFlow = {
             print("Finish flow")

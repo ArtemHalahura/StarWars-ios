@@ -27,6 +27,7 @@ private extension MainViewController {
     func configure() {
         configureScreen()
         configureCollectionView()
+        configureUpdateScreen()
     }
     
     func configureScreen() {
@@ -40,18 +41,43 @@ private extension MainViewController {
         collectionView.dataSource = self
         TextCollectionViewCell.register(in: collectionView)
     }
+    
+    func configureUpdateScreen() {
+        viewModel.showAlert = { [weak self] errorString in
+            DispatchQueue.main.async {
+                self?.showMessageAlert(title: errorString)
+            }
+        }
+        viewModel.showLoadingPage = { [weak self] in
+            DispatchQueue.main.async {
+                self?.presentLoadingPageController()
+            }
+        }
+    }
+    
+    func presentLoadingPageController() {
+        let loadingPageController = LoadingPageViewController()
+        loadingPageController.transitioningDelegate = self
+        loadingPageController.modalPresentationStyle = .overFullScreen
+        viewModel.dismissLoadingPage = { completion in
+            DispatchQueue.main.async {
+                loadingPageController.dismiss(animated: true, completion: completion)
+            }
+        }
+        present(loadingPageController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return viewModel.getNumberOfItems()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = TextCollectionViewCell.dequeue(in: collectionView, at: indexPath)
-        cell.setup(with: "\(indexPath.row)")
+        cell.setup(with: viewModel.getTitleForCell(at: indexPath.row))
         return cell
     }
     
@@ -65,5 +91,15 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 100.0)
+    }
+}
+
+// MARK: - UIViewControllerTransitioningDelegate
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController,
+                                presenting: UIViewController?,
+                                source: UIViewController) -> UIPresentationController? {
+        return PresentationController(presentedViewController: presented, presenting: presenting)
     }
 }
