@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B5FD1FA291A970100FB2D17 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5FD1F9291A970100FB2D17 /* MainViewController.xib */; };
 		9B8833CC29193BC3002C9DDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8833CB29193BC3002C9DDE /* AppDelegate.swift */; };
 		9B8833D029193BC3002C9DDE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8833CF29193BC3002C9DDE /* MainViewController.swift */; };
 		9B8833D529193BC4002C9DDE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B8833D429193BC4002C9DDE /* Assets.xcassets */; };
@@ -25,11 +26,18 @@
 		9B8834102919AC00002C9DDE /* ModuleFactoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B88340F2919AC00002C9DDE /* ModuleFactoryImp.swift */; };
 		9B8834132919AC2C002C9DDE /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8834122919AC2C002C9DDE /* MainViewModel.swift */; };
 		9B8834152919ACA7002C9DDE /* MainModuleFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8834142919ACA7002C9DDE /* MainModuleFactory.swift */; };
-		9B8834192919C6BE002C9DDE /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B8834182919C6BE002C9DDE /* MainViewController.xib */; };
 		9B88341B2919C7DD002C9DDE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B88341A2919C7DD002C9DDE /* Main.storyboard */; };
+		9B883421291A950C002C9DDE /* TextCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B88341F291A950C002C9DDE /* TextCollectionViewCell.swift */; };
+		9B883425291A95DD002C9DDE /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B883424291A95DD002C9DDE /* UICollectionViewCell+Extensions.swift */; };
+		9BD52EB5291A973B00EA53E8 /* TextCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9BD52EB4291A973B00EA53E8 /* TextCollectionViewCell.xib */; };
+		9BD52EB7291A97DD00EA53E8 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD52EB6291A97DD00EA53E8 /* UIView+Extensions.swift */; };
+		9BD52EB9291A997100EA53E8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9BD52EB8291A997100EA53E8 /* Localizable.strings */; };
+		9BD52EBC291AAC0600EA53E8 /* CategoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD52EBB291AAC0600EA53E8 /* CategoryListViewController.swift */; };
+		9BD52EBE291AAC1000EA53E8 /* CategoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD52EBD291AAC1000EA53E8 /* CategoryListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B5FD1F9291A970100FB2D17 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		9B8833C829193BC3002C9DDE /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8833CB29193BC3002C9DDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B8833CF29193BC3002C9DDE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -53,8 +61,14 @@
 		9B88340F2919AC00002C9DDE /* ModuleFactoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModuleFactoryImp.swift; sourceTree = "<group>"; };
 		9B8834122919AC2C002C9DDE /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		9B8834142919ACA7002C9DDE /* MainModuleFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModuleFactory.swift; sourceTree = "<group>"; };
-		9B8834182919C6BE002C9DDE /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		9B88341A2919C7DD002C9DDE /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		9B88341F291A950C002C9DDE /* TextCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewCell.swift; sourceTree = "<group>"; };
+		9B883424291A95DD002C9DDE /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		9BD52EB4291A973B00EA53E8 /* TextCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextCollectionViewCell.xib; sourceTree = "<group>"; };
+		9BD52EB6291A97DD00EA53E8 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		9BD52EB8291A997100EA53E8 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		9BD52EBB291AAC0600EA53E8 /* CategoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewController.swift; sourceTree = "<group>"; };
+		9BD52EBD291AAC1000EA53E8 /* CategoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B5FD1FB291A970900FB2D17 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9BD52EB4291A973B00EA53E8 /* TextCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		9B8833BF29193BC3002C9DDE = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +119,7 @@
 		9B8833DF29193C44002C9DDE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9B883423291A95C4002C9DDE /* Extensions */,
 				9B8833F72919A959002C9DDE /* Coordination */,
 				9B8833CB29193BC3002C9DDE /* AppDelegate.swift */,
 				9B8833E92919879D002C9DDE /* Workers */,
@@ -111,6 +134,7 @@
 				9B8834172919C6B3002C9DDE /* Xibs */,
 				9B8833D429193BC4002C9DDE /* Assets.xcassets */,
 				9B8834162919C689002C9DDE /* Storyboards */,
+				9BD52EB8291A997100EA53E8 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -137,7 +161,9 @@
 		9B8833E829198786002C9DDE /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				9B88340C2919AB71002C9DDE /* MainCoordinator.swift */,
 				9B8834112919AC1A002C9DDE /* MainScreen */,
+				9BD52EBA291A9D1000EA53E8 /* CategoryListScreen */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -213,7 +239,7 @@
 			children = (
 				9B8833CF29193BC3002C9DDE /* MainViewController.swift */,
 				9B8834122919AC2C002C9DDE /* MainViewModel.swift */,
-				9B88340C2919AB71002C9DDE /* MainCoordinator.swift */,
+				9B88341E291A94F4002C9DDE /* Cells */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -230,9 +256,44 @@
 		9B8834172919C6B3002C9DDE /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
-				9B8834182919C6BE002C9DDE /* MainViewController.xib */,
+				9B883426291A96D4002C9DDE /* MainScreen */,
 			);
 			path = Xibs;
+			sourceTree = "<group>";
+		};
+		9B88341E291A94F4002C9DDE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				9B88341F291A950C002C9DDE /* TextCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9B883423291A95C4002C9DDE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9B883424291A95DD002C9DDE /* UICollectionViewCell+Extensions.swift */,
+				9BD52EB6291A97DD00EA53E8 /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9B883426291A96D4002C9DDE /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9B5FD1FB291A970900FB2D17 /* Cells */,
+				9B5FD1F9291A970100FB2D17 /* MainViewController.xib */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		9BD52EBA291A9D1000EA53E8 /* CategoryListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9BD52EBB291AAC0600EA53E8 /* CategoryListViewController.swift */,
+				9BD52EBD291AAC1000EA53E8 /* CategoryListViewModel.swift */,
+			);
+			path = CategoryListScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,7 +354,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B8834192919C6BE002C9DDE /* MainViewController.xib in Resources */,
+				9BD52EB5291A973B00EA53E8 /* TextCollectionViewCell.xib in Resources */,
+				9BD52EB9291A997100EA53E8 /* Localizable.strings in Resources */,
+				9B5FD1FA291A970100FB2D17 /* MainViewController.xib in Resources */,
 				9B8833D829193BC4002C9DDE /* LaunchScreen.storyboard in Resources */,
 				9B8833D529193BC4002C9DDE /* Assets.xcassets in Resources */,
 				9B88341B2919C7DD002C9DDE /* Main.storyboard in Resources */,
@@ -307,16 +370,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BD52EBC291AAC0600EA53E8 /* CategoryListViewController.swift in Sources */,
 				9B8833FE2919A9BE002C9DDE /* Router.swift in Sources */,
 				9B88340D2919AB71002C9DDE /* MainCoordinator.swift in Sources */,
 				9B8833F92919A975002C9DDE /* AppCoordinator.swift in Sources */,
 				9B8833EB291987DC002C9DDE /* AppDependencies.swift in Sources */,
+				9B883425291A95DD002C9DDE /* UICollectionViewCell+Extensions.swift in Sources */,
 				9B8834032919AA07002C9DDE /* Presentable.swift in Sources */,
+				9BD52EBE291AAC1000EA53E8 /* CategoryListViewModel.swift in Sources */,
 				9B8834082919AA61002C9DDE /* UIViewController+Extensions.swift in Sources */,
 				9B8833D029193BC3002C9DDE /* MainViewController.swift in Sources */,
 				9B8834062919AA3C002C9DDE /* NSObject+Extensions.swift in Sources */,
 				9B8833ED291987F6002C9DDE /* NetworkManager.swift in Sources */,
 				9B8834152919ACA7002C9DDE /* MainModuleFactory.swift in Sources */,
+				9B883421291A950C002C9DDE /* TextCollectionViewCell.swift in Sources */,
+				9BD52EB7291A97DD00EA53E8 /* UIView+Extensions.swift in Sources */,
 				9B8833FB2919A99E002C9DDE /* BaseCoordinator.swift in Sources */,
 				9B8833CC29193BC3002C9DDE /* AppDelegate.swift in Sources */,
 				9B8834012919A9F8002C9DDE /* Coordinator.swift in Sources */,
