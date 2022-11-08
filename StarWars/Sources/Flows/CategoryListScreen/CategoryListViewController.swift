@@ -21,6 +21,7 @@ private extension CategoryListViewController {
         configureCollectionViewLayout()
         configureDataSource()
         configureSnapshot()
+        configureUpdateScreen() 
     }
     
     func configureCollectionViewLayout() {
@@ -40,6 +41,7 @@ private extension CategoryListViewController {
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = model.name
             cell.contentConfiguration = contentConfiguration
+            cell.accessories = [.disclosureIndicator()]
         }
         
         dataSource = DataSource(collectionView: collectionView) { (collectionView: UICollectionView, indexPath: IndexPath, model: CategoryModel) in
@@ -55,5 +57,20 @@ private extension CategoryListViewController {
         dataSource.apply(snapshot)
         
         collectionView.dataSource = dataSource
+    }
+    
+    func configureUpdateScreen() {
+        viewModel.showAlert = { [weak self] errorString in
+            DispatchQueue.main.async {
+                self?.showMessageAlert(title: errorString)
+            }
+        }
+    }
+}
+
+extension CategoryListViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.showDetailsScreen(at: indexPath.row)
     }
 }

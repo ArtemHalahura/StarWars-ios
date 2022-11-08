@@ -5,6 +5,7 @@ protocol NetworkManager {
     func getPlanets(completion: @escaping ((Result<MainPlanetsResponse, Error>) -> Void))
     func getFilms(completion: @escaping ((Result<MainFilmsResponse, Error>) -> Void))
     func getSpecies(completion: @escaping ((Result<MainSpeciesResponse, Error>) -> Void))
+    func getPerson(with url: String, completion: @escaping ((Result<PeopleResponse, Error>) -> Void))
 }
 
 final class NetworkManagerImp: NetworkManager {
@@ -47,6 +48,15 @@ final class NetworkManagerImp: NetworkManager {
     func getSpecies(completion: @escaping ((Result<MainSpeciesResponse, Error>) -> Void)) {
         do {
             let request = try APIRouter.species.asURLRequest()
+            session.dataTask(request: request, completionHandler: completion).resume()
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
+    func getPerson(with url: String, completion: @escaping ((Result<PeopleResponse, Error>) -> Void)) {
+        do {
+            let request = try APIRouter.person(url: url).asURLRequest()
             session.dataTask(request: request, completionHandler: completion).resume()
         } catch let error {
             completion(.failure(error))

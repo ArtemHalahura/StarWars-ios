@@ -57,6 +57,7 @@ final class MainViewModelImp: MainModuleOutput, MainViewModel {
     }
 }
 
+// MARK: - Network
 private extension MainViewModelImp {
     
     func sendPeopleNetworkRequest() {
@@ -71,7 +72,7 @@ private extension MainViewModelImp {
                     case .success(let peopleResponse):
                         var categoryModels = [CategoryModel]()
                         peopleResponse.results.forEach { model in
-                            let categoryModel = CategoryModel(name: model.name, url: model.url)
+                            let categoryModel = CategoryModel(name: model.name, url: model.url, type: .people)
                             categoryModels.append(categoryModel)
                         }
                         self?.onCategoryScreen?(categoryModels)
@@ -93,7 +94,7 @@ private extension MainViewModelImp {
                     case .success(let peopleResponse):
                         var categoryModels = [CategoryModel]()
                         peopleResponse.results.forEach { model in
-                            let categoryModel = CategoryModel(name: model.name, url: model.url)
+                            let categoryModel = CategoryModel(name: model.name, url: model.url, type: .planets)
                             categoryModels.append(categoryModel)
                         }
                         self?.onCategoryScreen?(categoryModels)
@@ -115,7 +116,7 @@ private extension MainViewModelImp {
                     case .success(let peopleResponse):
                         var categoryModels = [CategoryModel]()
                         peopleResponse.results.forEach { model in
-                            let categoryModel = CategoryModel(name: model.name, url: model.url)
+                            let categoryModel = CategoryModel(name: model.name, url: model.url, type: .films)
                             categoryModels.append(categoryModel)
                         }
                         self?.onCategoryScreen?(categoryModels)
@@ -137,7 +138,7 @@ private extension MainViewModelImp {
                     case .success(let peopleResponse):
                         var categoryModels = [CategoryModel]()
                         peopleResponse.results.forEach { model in
-                            let categoryModel = CategoryModel(name: model.name, url: model.url)
+                            let categoryModel = CategoryModel(name: model.name, url: model.url, type: .species)
                             categoryModels.append(categoryModel)
                         }
                         self?.onCategoryScreen?(categoryModels)

@@ -42,6 +42,18 @@ private extension MainCoordinator {
         output.onFinishFlow = {
             print("Finish flow")
         }
+        output.onDetailsScreen = { [weak self] model in
+            self?.showDetailsScreen(with: model)
+        }
+        router.push(presentable, animated: true)
+    }
+    
+    func showDetailsScreen(with model: DetailsModel) {
+        let (output, presentable) = moduleFactory.makeDetailsModuleOutput(model: model)
+        
+        output.onFinishFlow = {
+            print("Finish flow")
+        }
         router.push(presentable, animated: true)
     }
 }

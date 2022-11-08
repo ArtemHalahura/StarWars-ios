@@ -10,6 +10,8 @@ enum APIRouter {
     case species
     case vehicles
     
+    case person(url: String)
+    
     private var path: String {
         switch self {
             
@@ -23,13 +25,14 @@ enum APIRouter {
             return MainResourceType.species.description
         case .vehicles:
             return MainResourceType.vehicles.description
-        
+        case .person:
+            return ""
         }
     }
     
     private var method: String {
         switch self {
-        case .people, .planets, .films, .species, .vehicles:
+        case .people, .planets, .films, .species, .vehicles, .person:
             return "GET"
         }
     }
@@ -56,6 +59,12 @@ private extension APIRouter {
             
             guard let targetURL = urlComponents.url else { break }
             url = targetURL
+            
+        case .person(let urlString):
+            guard let newURL = URL(string: urlString) else {
+                fatalError(#function)
+            }
+            url = newURL
             
         default:
             break

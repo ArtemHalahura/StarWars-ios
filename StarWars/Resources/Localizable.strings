@@ -1,2 +1,11 @@
 //MainScreen
 "main_screen_navigation_title" = "Star Wars";
+
+//DetailsScreen
+"details_screen_name" = "Name";
+"details_screen_mass" = "Mass";
+"details_screen_height" = "Height";
+"details_screen_hair_color" = "Hair color";
+"details_screen_skin_color" = "Skin color";
+"details_screen_eye_color" = "Eye color";
+"details_screen_gender" = "Gender";

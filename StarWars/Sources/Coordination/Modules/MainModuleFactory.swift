@@ -3,6 +3,7 @@ import UIKit
 protocol MainModuleFactory {
     func makeMainModuleOutput(dependencies: AppDependencies) -> (output: MainModuleOutput, presentable: Presentable)
     func makeCategoryListModuleOutput(dependencies: AppDependencies, categoryModels: [CategoryModel]) -> (output: CategoryListModuleOutput, presentable: Presentable)
+    func makeDetailsModuleOutput(model: DetailsModel) -> (output: DetailsModuleOutput, presentable: Presentable)
 }
 
 extension ModuleFactoryImp: MainModuleFactory {
@@ -16,11 +17,19 @@ extension ModuleFactoryImp: MainModuleFactory {
     }
     
     func makeCategoryListModuleOutput(dependencies: AppDependencies, categoryModels: [CategoryModel]) -> (output: CategoryListModuleOutput, presentable: Presentable) {
-        let viewModel = CategoryListViewModelImp(categoryModels: categoryModels)
+        let viewModel = CategoryListViewModelImp(categoryModels: categoryModels, networkManager: dependencies.networkManager)
         
         let controller = CategoryListViewController.controllerInStoryboard(UIStoryboard(name: "Main", bundle: nil))
         controller.viewModel = viewModel
+        
+        return (viewModel, controller)
+    }
     
+    func makeDetailsModuleOutput(model: DetailsModel) -> (output: DetailsModuleOutput, presentable: Presentable) {
+        let viewModel = DetailsViewModelImp(detailsModel: model)
+        
+        let controller = DetailsViewController(nibName: DetailsViewController.nameOfClass, bundle: nil)
+        controller.viewModel = viewModel
         
         return (viewModel, controller)
     }
