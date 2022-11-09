@@ -28,6 +28,7 @@
 		9B0599B5291AFF0A0056EF17 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0599B4291AFF0A0056EF17 /* DetailsViewModel.swift */; };
 		9B0599B8291AFFC50056EF17 /* DetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0599B7291AFFC50056EF17 /* DetailsModel.swift */; };
 		9B0599BB291B00CE0056EF17 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0599BA291B00CE0056EF17 /* DetailsViewController.xib */; };
+		9B5BCE35291BC7B80069AB03 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BCE34291BC7B80069AB03 /* Configuration.swift */; };
 		9B5FD1FA291A970100FB2D17 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B5FD1F9291A970100FB2D17 /* MainViewController.xib */; };
 		9B8833CC29193BC3002C9DDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8833CB29193BC3002C9DDE /* AppDelegate.swift */; };
 		9B8833D029193BC3002C9DDE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8833CF29193BC3002C9DDE /* MainViewController.swift */; };
@@ -79,6 +80,7 @@
 		9B0599B4291AFF0A0056EF17 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 		9B0599B7291AFFC50056EF17 /* DetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModel.swift; sourceTree = "<group>"; };
 		9B0599BA291B00CE0056EF17 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		9B5BCE34291BC7B80069AB03 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		9B5FD1F9291A970100FB2D17 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		9B8833C829193BC3002C9DDE /* StarWars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarWars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8833CB29193BC3002C9DDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 				9B8833E329195A84002C9DDE /* Development.xcconfig */,
 				9B8833E429195B4B002C9DDE /* Production.xcconfig */,
 				9B8833E529196A34002C9DDE /* Staging.xcconfig */,
+				9B5BCE34291BC7B80069AB03 /* Configuration.swift */,
 			);
 			path = Configurations;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				9B05999F291AE42C0056EF17 /* CategoryModel.swift in Sources */,
 				9B8834132919AC2C002C9DDE /* MainViewModel.swift in Sources */,
 				9B05998E291ABE9D0056EF17 /* ParameterEncodable.swift in Sources */,
+				9B5BCE35291BC7B80069AB03 /* Configuration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

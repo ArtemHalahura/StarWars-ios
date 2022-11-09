@@ -1,2 +1,5 @@
 // App Settings
 APP_NAME = StarWarsDev
+
+// Server URL
+API_URL = https:/$()/swapi.dev/api/

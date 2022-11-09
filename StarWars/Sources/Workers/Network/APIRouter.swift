@@ -2,8 +2,6 @@ import Foundation
 
 enum APIRouter {
     
-    private static let baseURL = URL(string: "https://swapi.dev/api/")!
-    
     case people(page: String)
     case planets
     case films
@@ -11,6 +9,13 @@ enum APIRouter {
     case vehicles
     
     case person(url: String)
+    
+    var baseURL: URL {
+        guard let url = URL(string: Configuration.apiBaseUrl) else {
+            fatalError("Problem with URL")
+        }
+        return url
+    }
     
     private var path: String {
         switch self {
@@ -48,7 +53,7 @@ enum APIRouter {
 // MARK: - Private
 private extension APIRouter {
     func initializeURL() -> URL {
-        var url = APIRouter.baseURL.appendingPathComponent(path)
+        var url = baseURL.appendingPathComponent(path)
         
         switch self {
         case .people(let page):

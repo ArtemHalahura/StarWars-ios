@@ -6,5 +6,7 @@
 	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleDisplayName</key>
 	<string>$(APP_NAME)</string>
+	<key>API_URL</key>
+	<string>$(API_URL)</string>
 </dict>
 </plist>
