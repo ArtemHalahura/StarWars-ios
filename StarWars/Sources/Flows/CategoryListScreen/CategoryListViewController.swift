@@ -65,6 +65,17 @@ private extension CategoryListViewController {
                 self?.showMessageAlert(title: errorString)
             }
         }
+        
+        viewModel.updateScreen = { [weak self] in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                var snapshot = Snapshot()
+                snapshot.appendSections([Section.main])
+                let model = self.viewModel.getModels()
+                snapshot.appendItems(model)
+                self.dataSource.apply(snapshot)
+            }
+        }
     }
 }
 
@@ -72,5 +83,9 @@ extension CategoryListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.showDetailsScreen(at: indexPath.row)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        viewModel.checkVisibleCell(with: indexPath.row)
     }
 }
