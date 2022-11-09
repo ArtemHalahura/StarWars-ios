@@ -2,7 +2,7 @@ import Foundation
 
 protocol MainModuleOutput: AnyObject {
     var onFinishFlow: (() -> Void)? { get set }
-    var onCategoryScreen: (([CategoryModel]) -> Void)? { get set }
+    var onCategoryScreen: (([CategoryModel], MainResourceType) -> Void)? { get set }
 }
 
 protocol MainViewModel: AnyObject {
@@ -17,7 +17,7 @@ protocol MainViewModel: AnyObject {
 final class MainViewModelImp: MainModuleOutput, MainViewModel {
     
     var onFinishFlow: (() -> Void)?
-    var onCategoryScreen: (([CategoryModel]) -> Void)?
+    var onCategoryScreen: (([CategoryModel], MainResourceType) -> Void)?
     
     var showAlert: ((String) -> Void)?
     var showLoadingPage: (() -> Void)?
@@ -75,7 +75,7 @@ private extension MainViewModelImp {
                             let categoryModel = CategoryModel(name: model.name, url: model.url, type: .people)
                             categoryModels.append(categoryModel)
                         }
-                        self?.onCategoryScreen?(categoryModels)
+                        self?.onCategoryScreen?(categoryModels, .people)
                     }
                 }
             }
@@ -97,7 +97,7 @@ private extension MainViewModelImp {
                             let categoryModel = CategoryModel(name: model.name, url: model.url, type: .planets)
                             categoryModels.append(categoryModel)
                         }
-                        self?.onCategoryScreen?(categoryModels)
+                        self?.onCategoryScreen?(categoryModels, .planets)
                     }
                 }
             }
@@ -119,7 +119,7 @@ private extension MainViewModelImp {
                             let categoryModel = CategoryModel(name: model.name, url: model.url, type: .films)
                             categoryModels.append(categoryModel)
                         }
-                        self?.onCategoryScreen?(categoryModels)
+                        self?.onCategoryScreen?(categoryModels, .films)
                     }
                 }
             }
@@ -141,7 +141,7 @@ private extension MainViewModelImp {
                             let categoryModel = CategoryModel(name: model.name, url: model.url, type: .species)
                             categoryModels.append(categoryModel)
                         }
-                        self?.onCategoryScreen?(categoryModels)
+                        self?.onCategoryScreen?(categoryModels, .species)
                     }
                 }
             }

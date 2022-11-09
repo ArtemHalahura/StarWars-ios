@@ -8,6 +8,8 @@ final class CategoryListViewController: UICollectionViewController {
     var viewModel: CategoryListViewModel!
     private var dataSource: DataSource!
     
+    private let searchController = UISearchController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -18,10 +20,30 @@ final class CategoryListViewController: UICollectionViewController {
 private extension CategoryListViewController {
     
     func configure() {
+        configureScreen()
+        configureSearchController()
         configureCollectionViewLayout()
         configureDataSource()
         configureSnapshot()
-        configureUpdateScreen() 
+        configureUpdateScreen()
+    }
+    
+    func configureScreen() {
+        navigationItem.title = viewModel.titleName
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    func configureSearchController() {
+        searchController.loadViewIfNeeded()
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.enablesReturnKeyAutomatically = false
+        searchController.searchBar.returnKeyType = .done
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "Search"
     }
     
     func configureCollectionViewLayout() {
@@ -79,6 +101,7 @@ private extension CategoryListViewController {
     }
 }
 
+// MARK: -
 extension CategoryListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -87,5 +110,14 @@ extension CategoryListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         viewModel.checkVisibleCell(with: indexPath.row)
+    }
+}
+
+// MARK: - UISearchResultsUpdating, UISearchBarDelegate
+extension CategoryListViewController: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let text = searchController.searchBar.text
+        viewModel.searchText(with: text)
     }
 }

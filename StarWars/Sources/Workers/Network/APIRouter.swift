@@ -9,6 +9,7 @@ enum APIRouter {
     case vehicles
     
     case person(url: String)
+    case searchPeople(type: MainResourceType, text: String)
     
     var baseURL: URL {
         guard let url = URL(string: Configuration.apiBaseUrl) else {
@@ -32,12 +33,14 @@ enum APIRouter {
             return MainResourceType.vehicles.description
         case .person:
             return ""
+        case .searchPeople(let type, _):
+            return type.description
         }
     }
     
     private var method: String {
         switch self {
-        case .people, .planets, .films, .species, .vehicles, .person:
+        case .people, .planets, .films, .species, .vehicles, .person, .searchPeople:
             return "GET"
         }
     }
@@ -70,6 +73,15 @@ private extension APIRouter {
                 fatalError(#function)
             }
             url = newURL
+            
+        case .searchPeople(_ , let text):
+            guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true) else { break }
+            
+            let pageQueryItem = URLQueryItem(name: "search", value: text)
+            urlComponents.queryItems = [pageQueryItem]
+            
+            guard let targetURL = urlComponents.url else { break }
+            url = targetURL
             
         default:
             break
